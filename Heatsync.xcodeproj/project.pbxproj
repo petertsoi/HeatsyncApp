@@ -16,20 +16,8 @@
 		D037762313B6A7D200804B3F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D037762113B6A7D200804B3F /* MainWindow.xib */; };
 		D037762613B6A7D200804B3F /* HeatsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D037762513B6A7D200804B3F /* HeatsyncViewController.m */; };
 		D037762913B6A7D200804B3F /* HeatsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D037762713B6A7D200804B3F /* HeatsyncViewController.xib */; };
-		D037763013B6A7D200804B3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037760F13B6A7D100804B3F /* UIKit.framework */; };
-		D037763113B6A7D200804B3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037761113B6A7D100804B3F /* Foundation.framework */; };
-		D037763213B6A7D200804B3F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037761313B6A7D100804B3F /* CoreGraphics.framework */; };
+		D037764913B6AD0800804B3F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037764813B6AD0800804B3F /* MapKit.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D037763313B6A7D200804B3F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D037760213B6A7D100804B3F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D037760A13B6A7D100804B3F;
-			remoteInfo = Heatsync;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D037760B13B6A7D100804B3F /* Heatsync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heatsync.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,7 +34,7 @@
 		D037762413B6A7D200804B3F /* HeatsyncViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeatsyncViewController.h; sourceTree = "<group>"; };
 		D037762513B6A7D200804B3F /* HeatsyncViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeatsyncViewController.m; sourceTree = "<group>"; };
 		D037762813B6A7D200804B3F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HeatsyncViewController.xib; sourceTree = "<group>"; };
-		D037762F13B6A7D200804B3F /* HeatsyncTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeatsyncTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D037764813B6AD0800804B3F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,19 +42,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D037764913B6AD0800804B3F /* MapKit.framework in Frameworks */,
 				D037761013B6A7D100804B3F /* UIKit.framework in Frameworks */,
 				D037761213B6A7D100804B3F /* Foundation.framework in Frameworks */,
 				D037761413B6A7D100804B3F /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D037762B13B6A7D200804B3F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D037763013B6A7D200804B3F /* UIKit.framework in Frameworks */,
-				D037763113B6A7D200804B3F /* Foundation.framework in Frameworks */,
-				D037763213B6A7D200804B3F /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				D037760B13B6A7D100804B3F /* Heatsync.app */,
-				D037762F13B6A7D200804B3F /* HeatsyncTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +72,7 @@
 		D037760E13B6A7D100804B3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D037764813B6AD0800804B3F /* MapKit.framework */,
 				D037760F13B6A7D100804B3F /* UIKit.framework */,
 				D037761113B6A7D100804B3F /* Foundation.framework */,
 				D037761313B6A7D100804B3F /* CoreGraphics.framework */,
@@ -146,25 +125,6 @@
 			productReference = D037760B13B6A7D100804B3F /* Heatsync.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D037762E13B6A7D200804B3F /* HeatsyncTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D037764513B6A7D200804B3F /* Build configuration list for PBXNativeTarget "HeatsyncTests" */;
-			buildPhases = (
-				D037762A13B6A7D200804B3F /* Sources */,
-				D037762B13B6A7D200804B3F /* Frameworks */,
-				D037762C13B6A7D200804B3F /* Resources */,
-				D037762D13B6A7D200804B3F /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D037763413B6A7D200804B3F /* PBXTargetDependency */,
-			);
-			name = HeatsyncTests;
-			productName = HeatsyncTests;
-			productReference = D037762F13B6A7D200804B3F /* HeatsyncTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -186,7 +146,6 @@
 			projectRoot = "";
 			targets = (
 				D037760A13B6A7D100804B3F /* Heatsync */,
-				D037762E13B6A7D200804B3F /* HeatsyncTests */,
 			);
 		};
 /* End PBXProject section */
@@ -202,30 +161,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D037762C13B6A7D200804B3F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		D037762D13B6A7D200804B3F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D037760713B6A7D100804B3F /* Sources */ = {
@@ -238,22 +174,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D037762A13B6A7D200804B3F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D037763413B6A7D200804B3F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D037760A13B6A7D100804B3F /* Heatsync */;
-			targetProxy = D037763313B6A7D200804B3F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D037761813B6A7D100804B3F /* InfoPlist.strings */ = {
@@ -343,50 +264,6 @@
 			};
 			name = Release;
 		};
-		D037764613B6A7D200804B3F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Heatsync.app/Heatsync";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HeatsyncTests/HeatsyncTests-Prefix.pch";
-				INFOPLIST_FILE = "HeatsyncTests/HeatsyncTests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		D037764713B6A7D200804B3F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Heatsync.app/Heatsync";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HeatsyncTests/HeatsyncTests-Prefix.pch";
-				INFOPLIST_FILE = "HeatsyncTests/HeatsyncTests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -404,14 +281,6 @@
 			buildConfigurations = (
 				D037764313B6A7D200804B3F /* Debug */,
 				D037764413B6A7D200804B3F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		D037764513B6A7D200804B3F /* Build configuration list for PBXNativeTarget "HeatsyncTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D037764613B6A7D200804B3F /* Debug */,
-				D037764713B6A7D200804B3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
