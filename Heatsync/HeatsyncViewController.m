@@ -10,6 +10,7 @@
 #import "ASIHTTPRequest.h"
 #import "SBJson.h"
 #import "Annotation.h"
+#import "HSAnnotationView.h"
 
 #define kSpanLatDeltaMax            2
 
@@ -50,8 +51,8 @@
     
 	//Set Zoom level using Span
 	MKCoordinateSpan span;
-	span.latitudeDelta=.2;
-	span.longitudeDelta=.4;
+	span.latitudeDelta=.02;
+	span.longitudeDelta=.02;
 	region.span=span;
 	
 	[map setRegion:region animated:TRUE];
@@ -118,7 +119,7 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(Annotation *)annotation{
 
-	return [[MKAnnotationView alloc] init];
+	return [[HSAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Hello"];
 }
 
 - (void)dealloc

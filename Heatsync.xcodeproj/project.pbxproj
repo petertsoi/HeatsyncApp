@@ -43,7 +43,11 @@
 		D03776A813B6B61400804B3F /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = D037769A13B6B61400804B3F /* SBJsonTokeniser.m */; };
 		D03776A913B6B61400804B3F /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = D037769C13B6B61400804B3F /* SBJsonUTF8Stream.m */; };
 		D03776AA13B6B61400804B3F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D037769E13B6B61400804B3F /* SBJsonWriter.m */; };
+		D0486B7B13B6FDC7005DF573 /* buffercircle.png in Resources */ = {isa = PBXBuildFile; fileRef = D0486B7A13B6FDC7005DF573 /* buffercircle.png */; };
+		D0486B8E13B71481005DF573 /* popup_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D0486B8D13B71481005DF573 /* popup_bg.png */; };
 		D0C3A59C13B6E71E009DFEDA /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C3A59B13B6E71E009DFEDA /* Annotation.m */; };
+		D0F1AC5C13B6F9F700602416 /* HSAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F1AC5B13B6F9F700602416 /* HSAnnotationView.m */; };
+		D0F1AC6213B6FB6100602416 /* smalldot.png in Resources */ = {isa = PBXBuildFile; fileRef = D0F1AC6113B6FB6100602416 /* smalldot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,8 +118,13 @@
 		D037769C13B6B61400804B3F /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		D037769D13B6B61400804B3F /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		D037769E13B6B61400804B3F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		D0486B7A13B6FDC7005DF573 /* buffercircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buffercircle.png; sourceTree = "<group>"; };
+		D0486B8D13B71481005DF573 /* popup_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popup_bg.png; sourceTree = "<group>"; };
 		D0C3A59A13B6E71E009DFEDA /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		D0C3A59B13B6E71E009DFEDA /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		D0F1AC5A13B6F9F700602416 /* HSAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSAnnotationView.h; sourceTree = "<group>"; };
+		D0F1AC5B13B6F9F700602416 /* HSAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSAnnotationView.m; sourceTree = "<group>"; };
+		D0F1AC6113B6FB6100602416 /* smalldot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalldot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +150,7 @@
 		D037760013B6A7D100804B3F = {
 			isa = PBXGroup;
 			children = (
+				D0F1AC6013B6FB6100602416 /* Resources */,
 				D037768513B6B61400804B3F /* SBJson */,
 				D037765D13B6B4E200804B3F /* ASIHTTPRequest */,
 				D037761513B6A7D100804B3F /* Heatsync */,
@@ -176,6 +186,8 @@
 		D037761513B6A7D100804B3F /* Heatsync */ = {
 			isa = PBXGroup;
 			children = (
+				D0F1AC5A13B6F9F700602416 /* HSAnnotationView.h */,
+				D0F1AC5B13B6F9F700602416 /* HSAnnotationView.m */,
 				D0C3A59A13B6E71E009DFEDA /* Annotation.h */,
 				D0C3A59B13B6E71E009DFEDA /* Annotation.m */,
 				D037761E13B6A7D100804B3F /* HeatsyncAppDelegate.h */,
@@ -261,6 +273,16 @@
 			path = SBJson;
 			sourceTree = "<group>";
 		};
+		D0F1AC6013B6FB6100602416 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D0486B7A13B6FDC7005DF573 /* buffercircle.png */,
+				D0F1AC6113B6FB6100602416 /* smalldot.png */,
+				D0486B8D13B71481005DF573 /* popup_bg.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,6 +336,9 @@
 				D037761A13B6A7D100804B3F /* InfoPlist.strings in Resources */,
 				D037762313B6A7D200804B3F /* MainWindow.xib in Resources */,
 				D037762913B6A7D200804B3F /* HeatsyncViewController.xib in Resources */,
+				D0F1AC6213B6FB6100602416 /* smalldot.png in Resources */,
+				D0486B7B13B6FDC7005DF573 /* buffercircle.png in Resources */,
+				D0486B8E13B71481005DF573 /* popup_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +374,7 @@
 				D03776A913B6B61400804B3F /* SBJsonUTF8Stream.m in Sources */,
 				D03776AA13B6B61400804B3F /* SBJsonWriter.m in Sources */,
 				D0C3A59C13B6E71E009DFEDA /* Annotation.m in Sources */,
+				D0F1AC5C13B6F9F700602416 /* HSAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
