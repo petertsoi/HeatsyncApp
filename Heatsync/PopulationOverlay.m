@@ -13,14 +13,24 @@
 
 #pragma mark Constructors/Destructors
 
-- (id) initWithXSamples:(int)xSamples YSamples:(int)ySamples data:(double*)data
+- (id) initAt:(CLLocationCoordinate2D)upperLeft WithXSamples:(int)xSamples YSamples:(int)ySamples gridSize:(double)boxSize data:(double*)data
 {
     self = [super init];
     if (self)
     {
         gridWidth = xSamples;
         gridHeight = ySamples;
-        memcpy(grid, data, sizeof(data));
+        gridSize = boxSize;
+        origin = upperLeft;
+        
+        grid = malloc(sizeof(double) * xSamples * ySamples);
+        if (grid)
+            memcpy(grid, data, sizeof(double) * xSamples * ySamples);
+        
+        
+        for (int i = 0; i < gridWidth * gridHeight; i++) {
+            NSLog(@"Grid[%i]: %f", i, grid[i]);
+        }
     }
     return self;
 }
@@ -101,7 +111,7 @@
     
     // Loop through the grid by the gridReduction factor, sampling values along the way
     int x, y, read = 0;
-    for (y = top; y <= bottom; y += gridReduction) {
+    for (y = bottom; y >= top; y -= gridReduction) {
         for (x = left; x <= right; x += gridReduction) {
             // Convert an upper-left, lower-right latitude and longitude to an MKMapRect
             CLLocationCoordinate2D valueOrigin = 

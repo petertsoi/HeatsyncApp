@@ -26,11 +26,16 @@
 #pragma mark MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    NSLog(@"change");
     if (map.region.span.latitudeDelta > kSpanLatDeltaMax) {
         [map setRegion:globalRegion animated:YES];
     }
     else {
-        [self downloadTrendingData];
+        if (!updating && animated) {
+            [self downloadTrendingData];
+        }
+        
+        
     }
 }
 
@@ -66,7 +71,6 @@
     updating = NO;
     
     [self addPin];
-    [self downloadTrendingDataFinished:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -79,47 +83,87 @@
     MKCoordinateRegion center = map.region;
     MKCoordinateRegion span = map.region;
     
-    double bl_x = map.region.center.longitude - map.region.span.longitudeDelta;
+    double bl_x = map.region.center.longitude - map.region.span.longitudeDelta/2;
     
-    double bl_y = map.region.center.latitude - map.region.span.latitudeDelta;
+    double bl_y = map.region.center.latitude - map.region.span.latitudeDelta/2;
     
-    double tr_x = map.region.center.longitude + map.region.span.longitudeDelta;
+    double tr_x = map.region.center.longitude + map.region.span.longitudeDelta/2;
     
-    double tr_y = map.region.center.latitude + map.region.span.latitudeDelta;
-    
-    
-    NSString *urlString = [NSString stringWithFormat:@"/trending_data?bl=%f,%f&tr=%f,%f&divx=%d&divy=%d", bl_x, bl_y, tr_x, tr_y, 8, 12];
+    double tr_y = map.region.center.latitude + map.region.span.latitudeDelta/2;
+    NSString *urlString = [NSString stringWithFormat:@"http://ec2-50-19-194-124.compute-1.amazonaws.com/trending_data?bl=%f,%f&tr=%f,%f&divx=%d&divy=%d", bl_x, bl_y, tr_x, tr_y, 8, 12];
     NSURL *requestURL = [NSURL URLWithString:urlString];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:requestURL];
     [request setDelegate:self];
     [request setDidFinishSelector:@selector(downloadTrendingDataFinished:)];
     
-    //[request startAsynchronous];
+    [request startAsynchronous];
 }
 
 - (void)downloadTrendingDataFinished:(ASIHTTPRequest *)request {
     NSString *responseString = [request responseString];
     NSArray *trendingAreaPopulations = [responseString JSONValue];
-    trendingAreaPopulations = [@"[0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 5, 12, 0, 0, 5, 0, 0]" JSONValue];
+    
+    // ugly test set. remove before flight.
+    /*trendingAreaPopulations = [@"[5, 10, 15, 20, 25, 5, 12, 32, 0, 16, 27, 30, 7, 4, 3, 18, 9, 28, 5, 12, 19, 0, 5, 16, 18]" JSONValue];*/
+    int height = 12;
+    int width = 8;
+    // end test set
+    
+    // Area calculations
+    double bl_x = map.region.center.longitude - map.region.span.longitudeDelta/2;
+    double bl_y = map.region.center.latitude - map.region.span.latitudeDelta/2;
+    double tr_x = map.region.center.longitude + map.region.span.longitudeDelta/2;
+    double tr_y = map.region.center.latitude + map.region.span.latitudeDelta/2;
+    
+    CLLocationCoordinate2D topLeft = CLLocationCoordinate2DMake(tr_y, bl_x);
+    
+    double regionSquareSize = fabs((tr_x - bl_x) * (tr_y - bl_y));
+    
+    
+    
+    
+    
+    
+    
     
     double grid[[trendingAreaPopulations count]];
+    unsigned int maxSoFar = 0;
     for (int i = 0; i < [trendingAreaPopulations count]; i++) {
         grid[i] = [[trendingAreaPopulations objectAtIndex:i] doubleValue];
         NSLog(@"%f", grid[i]);
+        maxSoFar = MAX(grid[i], maxSoFar);
     }
+    
+    double maxRatio = (double)maxSoFar / regionSquareSize;
+    
+    double normalized[[trendingAreaPopulations count]];
+    
+    for (int i = 0; i < [trendingAreaPopulations count]; i++) {
+        normalized[i] = grid[i] / (double)maxSoFar;
+        NSLog(@"Normalized[%i]: %f", i, normalized[i]);
+    }
+    
+    
+   
     
     int i = 0;
     
-    /*PopulationOverlay *populationOverlay = [[PopulationOverlay alloc] initWithXSamples:<#(int)#> YSamples:<#(int)#> data:<#(double *)#>];
+    NSLog(@"maxRatio: %f \t for = %i / %f\n", maxRatio, maxSoFar, regionSquareSize);
+    
+    PopulationOverlay *populationOverlay = [[PopulationOverlay alloc] initAt:topLeft 
+                                                                WithXSamples:width 
+                                                                    YSamples:height 
+                                                                    gridSize:fabs((tr_x - bl_x))/(double)width
+                                                                        data:normalized];
     
     // Position and zoom the map to just fit the grid loaded on screen
-    [map setVisibleMapRect:[populationOverlay boundingMapRect]];
-    
+//    [map setVisibleMapRect:[populationOverlay boundingMapRect]];
+//    
     // Add the earthquake hazard map to the map view
     [map addOverlay:populationOverlay];
     
     // Let the map view own the hazards model object now
-    [populationOverlay release];*/
+    [populationOverlay release];
 
     
 }
@@ -166,7 +210,6 @@
     
     [locMan startUpdatingLocation];
     
-    map.delegate = self;
     map.showsUserLocation = YES;
 }
 

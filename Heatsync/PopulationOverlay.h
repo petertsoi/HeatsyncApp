@@ -22,7 +22,7 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 
-- (id) initWithXSamples:(int)xSamples YSamples:(int)ySamples data:(double*)data; 
+- (id) initAt:(CLLocationCoordinate2D)upperLeft WithXSamples:(int)xSamples YSamples:(int)ySamples gridSize:(double)boxSize data:(double*)data;
 
 - (MKMapRect)boundingMapRect;
 
