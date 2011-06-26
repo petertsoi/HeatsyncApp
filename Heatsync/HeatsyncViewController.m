@@ -186,7 +186,6 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(Annotation *)annotation{
-
 	return [[HSAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Hello"];
 }
 
