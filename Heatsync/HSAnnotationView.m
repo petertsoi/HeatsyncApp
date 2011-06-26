@@ -17,12 +17,11 @@
     if ((self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier])) {
         self.userInteractionEnabled = YES;
         self.bounds = CGRectMake(0, 0, 12, 12);
-        //self.backgroundColor = [UIColor blackColor];
         self.canShowCallout = YES;
         self.calloutOffset = CGPointMake(0, -5);
         UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         self.rightCalloutAccessoryView = rightButton;
-//        
+        
         UIImageView *dot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"smalldot.png"]];
         dot.userInteractionEnabled = YES;
         [self addSubview:dot];
@@ -37,9 +36,10 @@
         [self sendSubviewToBack:cloud];
         [self expandCloud];
 
-//        self.leftCalloutAccessoryView = callout;
-//        self.canShowCallout = YES;
-//        self.rightCalloutAccessoryView = nil;
+//        self.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup_bg.png"]];
+//        CGRect test = self.leftCalloutAccessoryView.frame;
+        self.canShowCallout = YES;
+        self.rightCalloutAccessoryView = nil;
     }
     
     return self;

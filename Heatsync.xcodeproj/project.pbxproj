@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0AB9F36613B6E3B50017DC18 /* PopulationOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9F36513B6E3B50017DC18 /* PopulationOverlay.m */; };
 		0AB9F36913B6E6440017DC18 /* PopulationOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9F36813B6E6440017DC18 /* PopulationOverlayView.m */; };
+		D01D12CD13B7238100D83A50 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01D12CB13B7238100D83A50 /* PlaceDetailViewController.xib */; };
+		D01D12D913B729A200D83A50 /* pdp_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D01D12D713B729A200D83A50 /* pdp_bg.png */; };
+		D01D12DA13B729A200D83A50 /* people_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D01D12D813B729A200D83A50 /* people_icon.png */; };
+		D01D12DC13B729BF00D83A50 /* directions_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D01D12DB13B729BF00D83A50 /* directions_bar.png */; };
 		D037761013B6A7D100804B3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037760F13B6A7D100804B3F /* UIKit.framework */; };
 		D037761213B6A7D100804B3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037761113B6A7D100804B3F /* Foundation.framework */; };
 		D037761413B6A7D100804B3F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037761313B6A7D100804B3F /* CoreGraphics.framework */; };
@@ -57,6 +61,12 @@
 		0AB9F36513B6E3B50017DC18 /* PopulationOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopulationOverlay.m; sourceTree = "<group>"; };
 		0AB9F36713B6E6440017DC18 /* PopulationOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopulationOverlayView.h; sourceTree = "<group>"; };
 		0AB9F36813B6E6440017DC18 /* PopulationOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopulationOverlayView.m; sourceTree = "<group>"; };
+		D01D12C813B7238100D83A50 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = Heatsync/en.lproj/PlaceDetailViewController.h; sourceTree = "<group>"; };
+		D01D12CA13B7238100D83A50 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = Heatsync/en.lproj/PlaceDetailViewController.m; sourceTree = "<group>"; };
+		D01D12CC13B7238100D83A50 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Heatsync/en.lproj/PlaceDetailViewController.xib; sourceTree = "<group>"; };
+		D01D12D713B729A200D83A50 /* pdp_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdp_bg.png; sourceTree = "<group>"; };
+		D01D12D813B729A200D83A50 /* people_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = people_icon.png; sourceTree = "<group>"; };
+		D01D12DB13B729BF00D83A50 /* directions_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = directions_bar.png; sourceTree = "<group>"; };
 		D037760B13B6A7D100804B3F /* Heatsync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heatsync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D037760F13B6A7D100804B3F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D037761113B6A7D100804B3F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -211,6 +221,9 @@
 				D037761E13B6A7D100804B3F /* HeatsyncAppDelegate.h */,
 				D037761F13B6A7D100804B3F /* HeatsyncAppDelegate.m */,
 				D037762113B6A7D200804B3F /* MainWindow.xib */,
+				D01D12C713B7238100D83A50 /* PlaceDetailViewController.h */,
+				D01D12C913B7238100D83A50 /* PlaceDetailViewController.m */,
+				D01D12CB13B7238100D83A50 /* PlaceDetailViewController.xib */,
 				D037762413B6A7D200804B3F /* HeatsyncViewController.h */,
 				D037762513B6A7D200804B3F /* HeatsyncViewController.m */,
 				D037762713B6A7D200804B3F /* HeatsyncViewController.xib */,
@@ -294,7 +307,10 @@
 		D0F1AC6013B6FB6100602416 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D01D12D813B729A200D83A50 /* people_icon.png */,
+				D01D12D713B729A200D83A50 /* pdp_bg.png */,
 				D0486B7A13B6FDC7005DF573 /* buffercircle.png */,
+				D01D12DB13B729BF00D83A50 /* directions_bar.png */,
 				D0F1AC6113B6FB6100602416 /* smalldot.png */,
 				D0486B8D13B71481005DF573 /* popup_bg.png */,
 			);
@@ -357,6 +373,10 @@
 				D0F1AC6213B6FB6100602416 /* smalldot.png in Resources */,
 				D0486B7B13B6FDC7005DF573 /* buffercircle.png in Resources */,
 				D0486B8E13B71481005DF573 /* popup_bg.png in Resources */,
+				D01D12CD13B7238100D83A50 /* PlaceDetailViewController.xib in Resources */,
+				D01D12D913B729A200D83A50 /* pdp_bg.png in Resources */,
+				D01D12DA13B729A200D83A50 /* people_icon.png in Resources */,
+				D01D12DC13B729BF00D83A50 /* directions_bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +421,33 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D01D12C713B7238100D83A50 /* PlaceDetailViewController.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D01D12C813B7238100D83A50 /* en */,
+			);
+			name = PlaceDetailViewController.h;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D01D12C913B7238100D83A50 /* PlaceDetailViewController.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D01D12CA13B7238100D83A50 /* en */,
+			);
+			name = PlaceDetailViewController.m;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D01D12CB13B7238100D83A50 /* PlaceDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D01D12CC13B7238100D83A50 /* en */,
+			);
+			name = PlaceDetailViewController.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D037761813B6A7D100804B3F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

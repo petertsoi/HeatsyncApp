@@ -35,4 +35,10 @@
 
 - (void)downloadTrendingDataFinished:(ASIHTTPRequest *)request;
 
+- (void)downloadPlacesData;
+
+- (void)downloadPlacesDataFinished:(ASIHTTPRequest *)request;
+
+- (void)addPinAtCoord:(CLLocationCoordinate2D)coord title:(NSString *)title;
+
 @end
