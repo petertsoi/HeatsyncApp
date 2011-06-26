@@ -12,6 +12,7 @@
 #import <MapKit/MapKit.h>
 
 @class ASIHTTPRequest;
+@class PopulationOverlay;
 
 @interface HeatsyncViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate> {
 	IBOutlet MKMapView *map;
@@ -23,6 +24,8 @@
     BOOL updating;
     
     MKCoordinateRegion regionBeforeZoom;
+    
+    PopulationOverlay *populationOverlay;
 }
 
 @property (nonatomic, retain) CLLocationManager *locMan;

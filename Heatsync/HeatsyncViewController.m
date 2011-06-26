@@ -31,7 +31,7 @@
         [map setRegion:globalRegion animated:YES];
     }
     else {
-        if (!updating && animated) {
+        if (!updating) {
             [self downloadTrendingData];
         }
         
@@ -90,7 +90,8 @@
     double tr_x = map.region.center.longitude + map.region.span.longitudeDelta/2;
     
     double tr_y = map.region.center.latitude + map.region.span.latitudeDelta/2;
-    NSString *urlString = [NSString stringWithFormat:@"http://ec2-50-19-194-124.compute-1.amazonaws.com/trending_data?bl=%f,%f&tr=%f,%f&divx=%d&divy=%d", bl_x, bl_y, tr_x, tr_y, 8, 12];
+    NSString *urlString = [[NSString stringWithFormat:@"http://ec2-50-19-194-124.compute-1.amazonaws.com/trending_data?bl=%f,%f&tr=%f,%f&divx=%d&divy=%d", bl_y, bl_x, tr_y, tr_x, 8, 8] stringByAddingPercentEscapesUsingEncoding:
+                           NSASCIIStringEncoding];
     NSURL *requestURL = [NSURL URLWithString:urlString];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:requestURL];
     [request setDelegate:self];
@@ -100,12 +101,19 @@
 }
 
 - (void)downloadTrendingDataFinished:(ASIHTTPRequest *)request {
+
+    if (populationOverlay != nil){
+        [map removeOverlay:populationOverlay];
+    }
+    
     NSString *responseString = [request responseString];
+    NSLog(@"%@",[[request originalURL] absoluteString]);
+    NSLog(@"%@", responseString);
     NSArray *trendingAreaPopulations = [responseString JSONValue];
     
     // ugly test set. remove before flight.
     /*trendingAreaPopulations = [@"[5, 10, 15, 20, 25, 5, 12, 32, 0, 16, 27, 30, 7, 4, 3, 18, 9, 28, 5, 12, 19, 0, 5, 16, 18]" JSONValue];*/
-    int height = 12;
+    int height = 8;
     int width = 8;
     // end test set
     
@@ -130,7 +138,7 @@
     unsigned int maxSoFar = 0;
     for (int i = 0; i < [trendingAreaPopulations count]; i++) {
         grid[i] = [[trendingAreaPopulations objectAtIndex:i] doubleValue];
-        NSLog(@"%f", grid[i]);
+        NSLog(@"Pre-Norm %f", grid[i]);
         maxSoFar = MAX(grid[i], maxSoFar);
     }
     
@@ -150,7 +158,7 @@
     
     NSLog(@"maxRatio: %f \t for = %i / %f\n", maxRatio, maxSoFar, regionSquareSize);
     
-    PopulationOverlay *populationOverlay = [[PopulationOverlay alloc] initAt:topLeft 
+    populationOverlay = [[PopulationOverlay alloc] initAt:topLeft 
                                                                 WithXSamples:width 
                                                                     YSamples:height 
                                                                     gridSize:fabs((tr_x - bl_x))/(double)width

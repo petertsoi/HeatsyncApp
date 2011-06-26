@@ -36,16 +36,7 @@
         [self addSubview:cloud];
         [self sendSubviewToBack:cloud];
         [self expandCloud];
-//        [UIView animateWithDuration:1 animations:^{
-//            cloud.transform = CGAffineTransformMakeScale(1.25, 1.25);
-//        } ];
-//        
-//        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionRepeat animations:^{
-//            cloud.transform = CGAffineTransformMakeScale(1.25, 1.25);
-//            }
-//            completion:nil];
-        
-//        UIImageView *callout = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup_bg.png"]];
+
 //        self.leftCalloutAccessoryView = callout;
 //        self.canShowCallout = YES;
 //        self.rightCalloutAccessoryView = nil;
