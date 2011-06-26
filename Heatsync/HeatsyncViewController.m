@@ -203,16 +203,18 @@
         NSString *name = [info objectForKey:@"name"];
         NSNumber *lat = [info objectForKey:@"lat"];
         NSNumber *lng = [info objectForKey:@"lng"];
+        NSNumber *count = [info objectForKey:@"count"];
         
         CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([lat doubleValue], [lng doubleValue]);
         
-        [self addPinAtCoord:coord title:name];
+        [self addPinAtCoord:coord title:[NSString stringWithFormat:@"%@ (%@)", name, count] subtitle:[count stringValue]];
     }
 }
 
-- (void)addPinAtCoord:(CLLocationCoordinate2D)coord title:(NSString *)title{
+- (void)addPinAtCoord:(CLLocationCoordinate2D)coord title:(NSString *)title subtitle:(NSString *)subtitle{
 	Annotation *defaultAnnotation = [[Annotation alloc] initWithCoordinate:coord new:YES];
 	defaultAnnotation.title = title;
+    defaultAnnotation.subTitle = subtitle;
 	
 	[map addAnnotation:defaultAnnotation];
 	[map selectAnnotation:defaultAnnotation animated:YES];
