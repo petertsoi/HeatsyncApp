@@ -66,6 +66,7 @@
     locMan.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     
     [locMan startUpdatingLocation];
+    map.showsUserLocation = YES;
 }
 
 
