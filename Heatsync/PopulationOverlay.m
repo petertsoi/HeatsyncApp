@@ -22,6 +22,7 @@
         gridHeight = ySamples;
         memcpy(grid, data, sizeof(data));
     }
+    return self;
 }
 
 - (void)dealloc

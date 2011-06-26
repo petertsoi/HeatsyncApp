@@ -11,6 +11,9 @@
 #import "SBJson.h"
 #import "Annotation.h"
 
+#import "PopulationOverlay.h"
+#import "PopulationOverlayView.h"
+
 #define kSpanLatDeltaMax            2
 
 @implementation HeatsyncViewController
@@ -105,6 +108,19 @@
     }
     
     int i = 0;
+    
+    /*PopulationOverlay *populationOverlay = [[PopulationOverlay alloc] initWithXSamples:<#(int)#> YSamples:<#(int)#> data:<#(double *)#>];
+    
+    // Position and zoom the map to just fit the grid loaded on screen
+    [map setVisibleMapRect:[populationOverlay boundingMapRect]];
+    
+    // Add the earthquake hazard map to the map view
+    [map addOverlay:populationOverlay];
+    
+    // Let the map view own the hazards model object now
+    [populationOverlay release];*/
+
+    
 }
 
 - (void)addPin{
@@ -153,6 +169,11 @@
     map.showsUserLocation = YES;
 }
 
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    PopulationOverlayView *view = [[PopulationOverlayView alloc] initWithOverlay:overlay];
+    return [view autorelease];
+}
 
 - (void)viewDidUnload
 {
