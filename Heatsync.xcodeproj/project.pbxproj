@@ -43,6 +43,7 @@
 		D03776A813B6B61400804B3F /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = D037769A13B6B61400804B3F /* SBJsonTokeniser.m */; };
 		D03776A913B6B61400804B3F /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = D037769C13B6B61400804B3F /* SBJsonUTF8Stream.m */; };
 		D03776AA13B6B61400804B3F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D037769E13B6B61400804B3F /* SBJsonWriter.m */; };
+		D0C3A59C13B6E71E009DFEDA /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C3A59B13B6E71E009DFEDA /* Annotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,8 @@
 		D037769C13B6B61400804B3F /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		D037769D13B6B61400804B3F /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		D037769E13B6B61400804B3F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		D0C3A59A13B6E71E009DFEDA /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		D0C3A59B13B6E71E009DFEDA /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +176,8 @@
 		D037761513B6A7D100804B3F /* Heatsync */ = {
 			isa = PBXGroup;
 			children = (
+				D0C3A59A13B6E71E009DFEDA /* Annotation.h */,
+				D0C3A59B13B6E71E009DFEDA /* Annotation.m */,
 				D037761E13B6A7D100804B3F /* HeatsyncAppDelegate.h */,
 				D037761F13B6A7D100804B3F /* HeatsyncAppDelegate.m */,
 				D037762113B6A7D200804B3F /* MainWindow.xib */,
@@ -343,6 +348,7 @@
 				D03776A813B6B61400804B3F /* SBJsonTokeniser.m in Sources */,
 				D03776A913B6B61400804B3F /* SBJsonUTF8Stream.m in Sources */,
 				D03776AA13B6B61400804B3F /* SBJsonWriter.m in Sources */,
+				D0C3A59C13B6E71E009DFEDA /* Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +461,7 @@
 				D037764413B6A7D200804B3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
