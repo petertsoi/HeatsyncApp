@@ -129,7 +129,7 @@
     unsigned int maxSoFar = 0;
     for (int i = 0; i < [trendingAreaPopulations count]; i++) {
         grid[i] = [[trendingAreaPopulations objectAtIndex:i] doubleValue];
-        NSLog(@"Pre-Norm %f", grid[i]);
+        //NSLog(@"Pre-Norm %f", grid[i]);
         maxSoFar = MAX(grid[i], maxSoFar);
     }
     
@@ -142,7 +142,7 @@
     
     for (int i = 0; i < [trendingAreaPopulations count]; i++) {
         normalized[i] = grid[i] / (double)maxSoFar;
-        NSLog(@"Normalized[%i]: %f", i, normalized[i]);
+        //NSLog(@"Normalized[%i]: %f", i, normalized[i]);
     }
     
     
@@ -150,7 +150,7 @@
     
     int i = 0;
     
-    NSLog(@"maxRatio: %f \t for = %i / %f\n", maxRatio, maxSoFar, regionSquareSize);
+    //NSLog(@"maxRatio: %f \t for = %i / %f\n", maxRatio, maxSoFar, regionSquareSize);
     
     populationOverlay = [[PopulationOverlay alloc] initAt:topLeft 
                                                                 WithXSamples:width 

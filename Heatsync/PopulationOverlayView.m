@@ -163,7 +163,7 @@
             
             CGContextFillRect(ctx, boundaryCGRect);
         }
-        NSLog(@"Drawing[%i]: %f\n", i, value);
+        //NSLog(@"Drawing[%i]: %f\n", i, value);
     }
     
     free(values);

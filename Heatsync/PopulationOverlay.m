@@ -28,10 +28,10 @@
             memcpy(grid, data, sizeof(double) * xSamples * ySamples);
         
         
-        for (int i = 0; i < gridWidth * gridHeight; i++) {
+        /*for (int i = 0; i < gridWidth * gridHeight; i++) {
             NSLog(@"Grid[%i]: %f", i, (double)grid[i]);
             NSLog(@"Data[%i]: %f", i, (double)data[i]);
-        }
+        }*/
     }
     return self;
 }
