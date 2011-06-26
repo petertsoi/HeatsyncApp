@@ -27,16 +27,15 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     NSLog(@"change");
-    /*if (map.region.span.latitudeDelta > kSpanLatDeltaMax) {
+    if (map.region.span.latitudeDelta > kSpanLatDeltaMax) {
         [map setRegion:globalRegion animated:YES];
-    }*/
-    //else {
-        if (!updating) {
-            [self downloadTrendingData];
-        }
-        
-        
-    //}
+    }
+    else if (map.region.span.latitudeDelta < 0.01) {
+        [self downloadPlacesData];
+    }
+    else {
+        [self downloadTrendingData];
+    }
 }
 
 //- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
@@ -70,7 +69,6 @@
 	[manager stopUpdatingLocation];
     updating = NO;
     
-    [self addPin];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -127,13 +125,6 @@
     
     double regionSquareSize = fabs((tr_x - bl_x) * (tr_y - bl_y));
     
-    
-    
-    
-    
-    
-    
-    
     double grid[[trendingAreaPopulations count]];
     unsigned int maxSoFar = 0;
     for (int i = 0; i < [trendingAreaPopulations count]; i++) {
@@ -179,17 +170,58 @@
     
 }
 
-- (void)addPin{
-	CLLocationCoordinate2D myCoord = [map convertPoint:CGPointMake(160, 200) toCoordinateFromView:map];
-	Annotation *defaultAnnotation = [[Annotation alloc] initWithCoordinate:myCoord new:YES];
-	defaultAnnotation.title = @"Caffe Macs";
+- (void)downloadPlacesData {
+    double bl_x = map.region.center.longitude - map.region.span.longitudeDelta/2;
+    
+    double bl_y = map.region.center.latitude - map.region.span.latitudeDelta/2;
+    
+    double tr_x = map.region.center.longitude + map.region.span.longitudeDelta/2;
+    
+    double tr_y = map.region.center.latitude + map.region.span.latitudeDelta/2;
+    NSString *urlString = [[NSString stringWithFormat:@"http://ec2-50-19-194-124.compute-1.amazonaws.com/trending_places?bl=%f,%f&tr=%f,%f", bl_y, bl_x, tr_y, tr_x, 16, 16] stringByAddingPercentEscapesUsingEncoding:
+                           NSASCIIStringEncoding];
+    NSURL *requestURL = [NSURL URLWithString:urlString];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:requestURL];
+    [request setDelegate:self];
+    [request setDidFinishSelector:@selector(downloadPlacesDataFinished:)];
+    
+    [request startAsynchronous];
+}
+
+- (void)downloadPlacesDataFinished:(ASIHTTPRequest *)request {
+    if (populationOverlay != nil){
+        [map removeOverlay:populationOverlay];
+    }
+    
+    NSString *responseString = [request responseString];
+    NSLog(@"%@",[[request originalURL] absoluteString]);
+    NSLog(@"%@", responseString);
+    NSArray *placesInfo = [responseString JSONValue];
+    
+    for (NSDictionary *info in placesInfo) {
+        NSLog(@"%@", info);
+        NSString *name = [info objectForKey:@"name"];
+        NSNumber *lat = [info objectForKey:@"lat"];
+        NSNumber *lng = [info objectForKey:@"lng"];
+        
+        CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([lat doubleValue], [lng doubleValue]);
+        
+        [self addPinAtCoord:coord title:name];
+    }
+}
+
+- (void)addPinAtCoord:(CLLocationCoordinate2D)coord title:(NSString *)title{
+	Annotation *defaultAnnotation = [[Annotation alloc] initWithCoordinate:coord new:YES];
+	defaultAnnotation.title = title;
 	
 	[map addAnnotation:defaultAnnotation];
 	[map selectAnnotation:defaultAnnotation animated:YES];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(Annotation *)annotation{
-	return [[HSAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Hello"];
+    static int i = 0;
+    i++;
+	return [[HSAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:[NSString stringWithFormat:@"Hello%d",i]];
 }
 
 - (void)dealloc
