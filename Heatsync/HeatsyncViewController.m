@@ -31,9 +31,9 @@
         [map setRegion:globalRegion animated:YES];
     }*/
     //else {
-        if (!updating) {
+        //if (!updating) {
             [self downloadTrendingData];
-        }
+        //}
         
         
     //}
@@ -177,6 +177,11 @@
     [populationOverlay release];
 
     
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request {
+    NSLog(@"%@", [request error]);
+    NSLog(@"Failed");
 }
 
 - (void)addPin{
