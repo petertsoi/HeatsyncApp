@@ -11,14 +11,22 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
+@class ASIHTTPRequest;
+
 @interface HeatsyncViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate> {
 	IBOutlet MKMapView *map;
     CLLocationManager *locMan;
 	CLLocationCoordinate2D currentLocation;
     
+    MKCoordinateRegion globalRegion;
+    
     BOOL updating;
 }
 
 @property (nonatomic, retain) CLLocationManager *locMan;
+
+- (void)downloadTrendingData;
+
+- (void)downloadTrendingDataFinished:(ASIHTTPRequest *)request;
 
 @end
