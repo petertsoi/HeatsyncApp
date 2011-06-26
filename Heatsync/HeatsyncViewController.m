@@ -27,16 +27,16 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     NSLog(@"change");
-    if (map.region.span.latitudeDelta > kSpanLatDeltaMax) {
+    /*if (map.region.span.latitudeDelta > kSpanLatDeltaMax) {
         [map setRegion:globalRegion animated:YES];
-    }
-    else {
+    }*/
+    //else {
         if (!updating) {
             [self downloadTrendingData];
         }
         
         
-    }
+    //}
 }
 
 //- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
@@ -90,7 +90,7 @@
     double tr_x = map.region.center.longitude + map.region.span.longitudeDelta/2;
     
     double tr_y = map.region.center.latitude + map.region.span.latitudeDelta/2;
-    NSString *urlString = [[NSString stringWithFormat:@"http://ec2-50-19-194-124.compute-1.amazonaws.com/trending_data?bl=%f,%f&tr=%f,%f&divx=%d&divy=%d", bl_y, bl_x, tr_y, tr_x, 8, 8] stringByAddingPercentEscapesUsingEncoding:
+    NSString *urlString = [[NSString stringWithFormat:@"http://ec2-50-19-194-124.compute-1.amazonaws.com/trending_data?bl=%f,%f&tr=%f,%f&divx=%d&divy=%d", bl_y, bl_x, tr_y, tr_x, 16, 16] stringByAddingPercentEscapesUsingEncoding:
                            NSASCIIStringEncoding];
     NSURL *requestURL = [NSURL URLWithString:urlString];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:requestURL];
@@ -113,8 +113,8 @@
     
     // ugly test set. remove before flight.
     /*trendingAreaPopulations = [@"[5, 10, 15, 20, 25, 5, 12, 32, 0, 16, 27, 30, 7, 4, 3, 18, 9, 28, 5, 12, 19, 0, 5, 16, 18]" JSONValue];*/
-    int height = 8;
-    int width = 8;
+    int height = 16;
+    int width = 16;
     // end test set
     
     // Area calculations
@@ -145,6 +145,9 @@
     double maxRatio = (double)maxSoFar / regionSquareSize;
     
     double normalized[[trendingAreaPopulations count]];
+    
+    if (maxSoFar == 0)
+        maxSoFar = 1;
     
     for (int i = 0; i < [trendingAreaPopulations count]; i++) {
         normalized[i] = grid[i] / (double)maxSoFar;

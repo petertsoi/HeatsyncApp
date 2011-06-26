@@ -29,7 +29,8 @@
         
         
         for (int i = 0; i < gridWidth * gridHeight; i++) {
-            NSLog(@"Grid[%i]: %f", i, grid[i]);
+            NSLog(@"Grid[%i]: %f", i, (double)grid[i]);
+            NSLog(@"Data[%i]: %f", i, (double)data[i]);
         }
     }
     return self;
@@ -102,8 +103,11 @@
     bottom = MAX(bottom, 0);
     bottom = MIN(bottom, gridHeight - 1);
     
-    int width = 1 + ((right - left) / gridReduction);
-    int height = 1 + ((bottom - top) / gridReduction);
+    /*int width = 1 + ((right - left) / gridReduction);
+    int height = 1 + ((bottom - top) / gridReduction);*/
+    
+    int width = gridWidth;
+    int height = gridHeight;
     
     *count = (width) * (height);
     MKMapRect *boundaries = malloc(sizeof(MKMapRect) * *count);
@@ -111,8 +115,8 @@
     
     // Loop through the grid by the gridReduction factor, sampling values along the way
     int x, y, read = 0;
-    for (y = bottom; y >= top; y -= gridReduction) {
-        for (x = left; x <= right; x += gridReduction) {
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x ++ ) {
             // Convert an upper-left, lower-right latitude and longitude to an MKMapRect
             CLLocationCoordinate2D valueOrigin = 
             CLLocationCoordinate2DMake(origin.latitude - (y * gridSize),
@@ -130,7 +134,8 @@
                                              lowerRight.y - upperLeft.y);
             
             // Read the grid value into the values array
-            values[read] = *(grid + (gridWidth * y) + x);
+            //values[read] = *(grid + (gridWidth * (gridHeight - y)) + x);
+            values[read] = grid[(gridWidth * (gridHeight - y-1)) + x];
             
             read++;
         }

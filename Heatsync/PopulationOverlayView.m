@@ -11,7 +11,7 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 
-#define NUM_COLORS 14
+#define NUM_COLORS 9
 @implementation PopulationOverlayView
 
 
@@ -22,26 +22,43 @@
     CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
     colors = malloc(sizeof(CGColorRef) * NUM_COLORS);
     int i = 0;
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .588, .294, .78, 1 }); // 1.00
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .784, .471, .82, 1 }); // 0.77
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ 1, 0, 0, 1 }); // 0.59
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ 1, .392, 0, 1 }); // 0.46
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ 1, .392, 0, 1 }); // 0.35
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ 1, .784, 0, 1 }); // 0.27
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ 1, 1, .5, 1 }); // 0.21
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .745, .941, .467, 1 }); // 0.16
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .122, 1, .31, 1 }); // 0.12
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .588, 1, .941, 1 }); // 0.10
-    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .784, 1, 1, 1 }); // 0.08
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .925, .313, .266, 1 }); // 1.00
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .925, .438, .396, 1 }); // 0.77
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .956, .523, .468, 1 }); // 0.59
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .952, .592, .427, 1 }); // 0.46
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .952, .660, .486, 1 }); // 0.35
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .952, .716, .611, 1 }); // 0.27
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .964, .933, .462, 1 }); // 0.21
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .973, .943, .684, 1 }); // 0.16
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .973, .943, .805, 1 }); // 0.12
+    colors[i++] = CGColorCreate(rgb, (CGFloat[]){ 1, 1, 1, 1 }); // 0.10
+    /*colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .784, 1, 1, 1 }); // 0.08
     colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .843, 1, 1, 1 }); // 0.06
     colors[i++] = CGColorCreate(rgb, (CGFloat[]){ .902, 1, 1, 1 }); // 0.04
-    colors[i] = CGColorCreate(rgb, (CGFloat[]){ .784, .784, .784, 1 }); // 0.03
+    colors[i] = CGColorCreate(rgb, (CGFloat[]){ .784, .784, .784, 1 }); // 0.03*/
     CGColorSpaceRelease(rgb);
 }
 
 // Look up a color in the table of colors for a peak ground acceleration
 - (CGColorRef)colorForAcceleration:(CGFloat)value
 {
+    if (value > 0.88) return colors[0];
+    if (value > 0.77) return colors[1];
+    if (value > 0.66) return colors[2];
+    if (value > 0.55) return colors[3];
+    if (value > 0.44) return colors[4];
+    if (value > 0.33) return colors[5];
+    if (value > 0.22) return colors[6];
+    if (value > 0.11) return colors[7];
+    if (value > 0.0) return colors[8];
+    /*if (value > 0.10) return colors[8];
+     if (value > 0.08) return colors[9];
+     if (value > 0.06) return colors[10];
+     if (value > 0.04) return colors[11];
+     if (value > 0.03) return colors[12];
+     if (value > 0.02) return colors[13];*/
+    
+    /*
     if (value > 0.77) return colors[0];
     if (value > 0.59) return colors[1];
     if (value > 0.46) return colors[2];
@@ -51,11 +68,11 @@
     if (value > 0.16) return colors[6];
     if (value > 0.12) return colors[7];
     if (value > 0.10) return colors[8];
-    if (value > 0.08) return colors[9];
-    if (value > 0.06) return colors[10];
-    if (value > 0.04) return colors[11];
-    if (value > 0.03) return colors[12];
-    if (value > 0.02) return colors[13];
+     if (value > 0.08) return colors[9];
+     if (value > 0.06) return colors[10];
+     if (value > 0.04) return colors[11];
+     if (value > 0.03) return colors[12];
+     if (value > 0.02) return colors[13];*/
     return NULL;
 }
 
@@ -100,7 +117,8 @@
     // boundary MKMapRect with the appropriate color.
     int i;
     for (i = 0; i < count; i++) {
-        float value = values[i];
+        double value = values[i];
+        
         MKMapRect boundary = boundaries[i];
         
         CGColorRef color = [self colorForAcceleration:value];
@@ -113,6 +131,7 @@
             
             CGContextFillRect(ctx, boundaryCGRect);
         }
+        NSLog(@"Drawing[%i]: %f\n", i, value);
     }
     
     free(values);
