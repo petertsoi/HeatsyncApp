@@ -9,17 +9,32 @@
 #import "HeatsyncViewController.h"
 #import "ASIHTTPRequest.h"
 #import "SBJson.h"
+#import "Annotation.h"
+
+#define kSpanLatDeltaMax            2
 
 @implementation HeatsyncViewController
 
 @synthesize locMan;
+@synthesize regionBeforeZoom;
 
 #pragma mark -
 #pragma mark MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    [self downloadTrendingData];
+    if (map.region.span.latitudeDelta > kSpanLatDeltaMax) {
+        [map setRegion:globalRegion animated:YES];
+    }
+    else {
+        [self downloadTrendingData];
+    }
 }
+
+//- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+//    if (map.region.span.latitudeDelta < kSpanLatDeltaMax) {
+//        self.regionBeforeZoom = mapView.region;
+//    }
+//}
 
 #pragma mark -
 #pragma mark Location Services
@@ -31,12 +46,12 @@
 	printf("\nUpdating to: %f, %f\n", currentLocation.latitude, currentLocation.longitude);
 	
 	MKCoordinateRegion region;
-	region.center=currentLocation;
+	region.center = currentLocation;
     
 	//Set Zoom level using Span
 	MKCoordinateSpan span;
-	span.latitudeDelta=.05;
-	span.longitudeDelta=.05;
+	span.latitudeDelta=.2;
+	span.longitudeDelta=.4;
 	region.span=span;
 	
 	[map setRegion:region animated:TRUE];
@@ -45,6 +60,9 @@
 	
 	[manager stopUpdatingLocation];
     updating = NO;
+    
+    [self addPin];
+    [self downloadTrendingDataFinished:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -72,16 +90,35 @@
     [request setDelegate:self];
     [request setDidFinishSelector:@selector(downloadTrendingDataFinished:)];
     
-    [request startAsynchronous];
+    //[request startAsynchronous];
 }
 
 - (void)downloadTrendingDataFinished:(ASIHTTPRequest *)request {
     NSString *responseString = [request responseString];
     NSArray *trendingAreaPopulations = [responseString JSONValue];
+    trendingAreaPopulations = [@"[0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 5, 12, 0, 0, 5, 0, 0]" JSONValue];
     
-    for (NSNumber *populationForArea in trendingAreaPopulations) {
-        //<#statements#>
+    double grid[[trendingAreaPopulations count]];
+    for (int i = 0; i < [trendingAreaPopulations count]; i++) {
+        grid[i] = [[trendingAreaPopulations objectAtIndex:i] doubleValue];
+        NSLog(@"%f", grid[i]);
     }
+    
+    int i = 0;
+}
+
+- (void)addPin{
+	CLLocationCoordinate2D myCoord = [map convertPoint:CGPointMake(160, 200) toCoordinateFromView:map];
+	Annotation *defaultAnnotation = [[Annotation alloc] initWithCoordinate:myCoord new:YES];
+	defaultAnnotation.title = @"Caffe Macs";
+	
+	[map addAnnotation:defaultAnnotation];
+	[map selectAnnotation:defaultAnnotation animated:YES];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(Annotation *)annotation{
+
+	return [[MKAnnotationView alloc] init];
 }
 
 - (void)dealloc

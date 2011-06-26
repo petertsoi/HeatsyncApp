@@ -21,9 +21,12 @@
     MKCoordinateRegion globalRegion;
     
     BOOL updating;
+    
+    MKCoordinateRegion regionBeforeZoom;
 }
 
 @property (nonatomic, retain) CLLocationManager *locMan;
+@property (nonatomic) MKCoordinateRegion regionBeforeZoom;
 
 - (void)downloadTrendingData;
 
