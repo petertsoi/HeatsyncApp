@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AB9F36613B6E3B50017DC18 /* PopulationOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9F36513B6E3B50017DC18 /* PopulationOverlay.m */; };
+		0AB9F36913B6E6440017DC18 /* PopulationOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9F36813B6E6440017DC18 /* PopulationOverlayView.m */; };
 		D037761013B6A7D100804B3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037760F13B6A7D100804B3F /* UIKit.framework */; };
 		D037761213B6A7D100804B3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037761113B6A7D100804B3F /* Foundation.framework */; };
 		D037761413B6A7D100804B3F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037761313B6A7D100804B3F /* CoreGraphics.framework */; };
@@ -51,6 +53,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AB9F36413B6E3B50017DC18 /* PopulationOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopulationOverlay.h; sourceTree = "<group>"; };
+		0AB9F36513B6E3B50017DC18 /* PopulationOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopulationOverlay.m; sourceTree = "<group>"; };
+		0AB9F36713B6E6440017DC18 /* PopulationOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopulationOverlayView.h; sourceTree = "<group>"; };
+		0AB9F36813B6E6440017DC18 /* PopulationOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopulationOverlayView.m; sourceTree = "<group>"; };
 		D037760B13B6A7D100804B3F /* Heatsync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heatsync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D037760F13B6A7D100804B3F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D037761113B6A7D100804B3F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +153,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AB9F36313B6E38C0017DC18 /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				0AB9F36413B6E3B50017DC18 /* PopulationOverlay.h */,
+				0AB9F36513B6E3B50017DC18 /* PopulationOverlay.m */,
+				0AB9F36713B6E6440017DC18 /* PopulationOverlayView.h */,
+				0AB9F36813B6E6440017DC18 /* PopulationOverlayView.m */,
+			);
+			name = Overlay;
+			sourceTree = "<group>";
+		};
 		D037760013B6A7D100804B3F = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +205,7 @@
 			children = (
 				D0F1AC5A13B6F9F700602416 /* HSAnnotationView.h */,
 				D0F1AC5B13B6F9F700602416 /* HSAnnotationView.m */,
+				0AB9F36313B6E38C0017DC18 /* Overlay */,
 				D0C3A59A13B6E71E009DFEDA /* Annotation.h */,
 				D0C3A59B13B6E71E009DFEDA /* Annotation.m */,
 				D037761E13B6A7D100804B3F /* HeatsyncAppDelegate.h */,
@@ -373,6 +391,8 @@
 				D03776A813B6B61400804B3F /* SBJsonTokeniser.m in Sources */,
 				D03776A913B6B61400804B3F /* SBJsonUTF8Stream.m in Sources */,
 				D03776AA13B6B61400804B3F /* SBJsonWriter.m in Sources */,
+				0AB9F36613B6E3B50017DC18 /* PopulationOverlay.m in Sources */,
+				0AB9F36913B6E6440017DC18 /* PopulationOverlayView.m in Sources */,
 				D0C3A59C13B6E71E009DFEDA /* Annotation.m in Sources */,
 				D0F1AC5C13B6F9F700602416 /* HSAnnotationView.m in Sources */,
 			);
@@ -412,7 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Peter Tsoi (94YD5NUQPT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -420,7 +440,8 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PROVISIONING_PROFILE = "45F58067-CA4E-4D78-9F5D-68458A003017";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -429,13 +450,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Peter Tsoi (94YD5NUQPT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "45F58067-CA4E-4D78-9F5D-68458A003017";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
