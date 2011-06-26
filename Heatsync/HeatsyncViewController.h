@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HeatsyncViewController : UIViewController {
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+
+@interface HeatsyncViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate> {
+	IBOutlet MKMapView *map;
+    CLLocationManager *locMan;
+	CLLocationCoordinate2D currentLocation;
     
+    BOOL updating;
 }
+
+@property (nonatomic, retain) CLLocationManager *locMan;
 
 @end
