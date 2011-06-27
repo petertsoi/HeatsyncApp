@@ -102,6 +102,7 @@
 
     if (populationOverlay != nil){
         [map removeOverlay:populationOverlay];
+        populationOverlay = nil;
     }
     
     NSString *responseString = [request responseString];
@@ -191,6 +192,7 @@
 - (void)downloadPlacesDataFinished:(ASIHTTPRequest *)request {
     if (populationOverlay != nil){
         [map removeOverlay:populationOverlay];
+        populationOverlay = nil;
     }
     
     NSString *responseString = [request responseString];

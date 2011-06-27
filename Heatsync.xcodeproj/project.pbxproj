@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1D189813B755BA00B0CFAD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1D189713B755BA00B0CFAD /* Icon.png */; };
 		0AB9F36613B6E3B50017DC18 /* PopulationOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9F36513B6E3B50017DC18 /* PopulationOverlay.m */; };
 		0AB9F36913B6E6440017DC18 /* PopulationOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9F36813B6E6440017DC18 /* PopulationOverlayView.m */; };
 		D01D12CD13B7238100D83A50 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01D12CB13B7238100D83A50 /* PlaceDetailViewController.xib */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1D189713B755BA00B0CFAD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		0AB9F36413B6E3B50017DC18 /* PopulationOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopulationOverlay.h; sourceTree = "<group>"; };
 		0AB9F36513B6E3B50017DC18 /* PopulationOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopulationOverlay.m; sourceTree = "<group>"; };
 		0AB9F36713B6E6440017DC18 /* PopulationOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopulationOverlayView.h; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		D037760013B6A7D100804B3F = {
 			isa = PBXGroup;
 			children = (
+				0A1D189713B755BA00B0CFAD /* Icon.png */,
 				D0F1AC6013B6FB6100602416 /* Resources */,
 				D037768513B6B61400804B3F /* SBJson */,
 				D037765D13B6B4E200804B3F /* ASIHTTPRequest */,
@@ -377,6 +380,7 @@
 				D01D12D913B729A200D83A50 /* pdp_bg.png in Resources */,
 				D01D12DA13B729A200D83A50 /* people_icon.png in Resources */,
 				D01D12DC13B729BF00D83A50 /* directions_bar.png in Resources */,
+				0A1D189813B755BA00B0CFAD /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,7 +492,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				PROVISIONING_PROFILE = "FB962B99-C273-4272-8F08-AEA613750697";
+				PROVISIONING_PROFILE = "DEFC801A-6FC3-498E-9A51-99D84009809A";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -504,7 +508,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "FB962B99-C273-4272-8F08-AEA613750697";
+				PROVISIONING_PROFILE = "DEFC801A-6FC3-498E-9A51-99D84009809A";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
