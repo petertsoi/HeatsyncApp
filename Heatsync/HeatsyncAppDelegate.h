@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class HeatsyncViewController;
-
 @interface HeatsyncAppDelegate : NSObject <UIApplicationDelegate> {
 
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-@property (nonatomic, retain) IBOutlet HeatsyncViewController *viewController;
+@property (nonatomic, retain) IBOutlet UINavigationController *viewController;
 
 @end
