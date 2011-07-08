@@ -36,18 +36,11 @@
         [self sendSubviewToBack:cloud];
         [self expandCloud];
 
-//        self.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup_bg.png"]];
-//        CGRect test = self.leftCalloutAccessoryView.frame;
         self.canShowCallout = YES;
-        self.rightCalloutAccessoryView = nil;
     }
     
     return self;
 }
-
-//- (UIView *)leftCalloutAccessoryView {
-//    return [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup_bg.png"]];
-//}
 
 - (void)expandCloud {
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{

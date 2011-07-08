@@ -39,6 +39,8 @@
 
 - (void)downloadPlacesDataFinished:(ASIHTTPRequest *)request;
 
-- (void)addPinAtCoord:(CLLocationCoordinate2D)coord title:(NSString *)title;
+- (void)addPinAtCoord:(CLLocationCoordinate2D)coord title:(NSString *)title subtitle:(NSString *)subtitle;
+
+- (void)showPlaceDetail;
 
 @end

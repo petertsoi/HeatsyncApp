@@ -10,10 +10,11 @@
 		0A1D189813B755BA00B0CFAD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1D189713B755BA00B0CFAD /* Icon.png */; };
 		0AB9F36613B6E3B50017DC18 /* PopulationOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9F36513B6E3B50017DC18 /* PopulationOverlay.m */; };
 		0AB9F36913B6E6440017DC18 /* PopulationOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9F36813B6E6440017DC18 /* PopulationOverlayView.m */; };
-		D01D12CD13B7238100D83A50 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01D12CB13B7238100D83A50 /* PlaceDetailViewController.xib */; };
 		D01D12D913B729A200D83A50 /* pdp_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D01D12D713B729A200D83A50 /* pdp_bg.png */; };
 		D01D12DA13B729A200D83A50 /* people_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D01D12D813B729A200D83A50 /* people_icon.png */; };
 		D01D12DC13B729BF00D83A50 /* directions_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D01D12DB13B729BF00D83A50 /* directions_bar.png */; };
+		D031C47C13C6CBC50017D8A8 /* HSNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D031C47B13C6CBC50017D8A8 /* HSNavigationBar.m */; };
+		D031C47F13C6CC520017D8A8 /* topbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D031C47E13C6CC520017D8A8 /* topbar.png */; };
 		D037761013B6A7D100804B3F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037760F13B6A7D100804B3F /* UIKit.framework */; };
 		D037761213B6A7D100804B3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037761113B6A7D100804B3F /* Foundation.framework */; };
 		D037761413B6A7D100804B3F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037761313B6A7D100804B3F /* CoreGraphics.framework */; };
@@ -21,7 +22,6 @@
 		D037761D13B6A7D100804B3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D037761C13B6A7D100804B3F /* main.m */; };
 		D037762013B6A7D100804B3F /* HeatsyncAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D037761F13B6A7D100804B3F /* HeatsyncAppDelegate.m */; };
 		D037762313B6A7D200804B3F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D037762113B6A7D200804B3F /* MainWindow.xib */; };
-		D037762613B6A7D200804B3F /* HeatsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D037762513B6A7D200804B3F /* HeatsyncViewController.m */; };
 		D037762913B6A7D200804B3F /* HeatsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D037762713B6A7D200804B3F /* HeatsyncViewController.xib */; };
 		D037765313B6ADA500804B3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037765213B6ADA500804B3F /* CoreLocation.framework */; };
 		D037765413B6ADAC00804B3F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037764813B6AD0800804B3F /* MapKit.framework */; };
@@ -52,6 +52,9 @@
 		D03776AA13B6B61400804B3F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D037769E13B6B61400804B3F /* SBJsonWriter.m */; };
 		D0486B7B13B6FDC7005DF573 /* buffercircle.png in Resources */ = {isa = PBXBuildFile; fileRef = D0486B7A13B6FDC7005DF573 /* buffercircle.png */; };
 		D0486B8E13B71481005DF573 /* popup_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D0486B8D13B71481005DF573 /* popup_bg.png */; };
+		D057D79913C2860000AD5711 /* HeatsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D057D79513C2860000AD5711 /* HeatsyncViewController.m */; };
+		D057D79A13C2860000AD5711 /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D057D79713C2860000AD5711 /* PlaceDetailViewController.m */; };
+		D057D79B13C2860000AD5711 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D057D79813C2860000AD5711 /* PlaceDetailViewController.xib */; };
 		D0C3A59C13B6E71E009DFEDA /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C3A59B13B6E71E009DFEDA /* Annotation.m */; };
 		D0F1AC5C13B6F9F700602416 /* HSAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F1AC5B13B6F9F700602416 /* HSAnnotationView.m */; };
 		D0F1AC6213B6FB6100602416 /* smalldot.png in Resources */ = {isa = PBXBuildFile; fileRef = D0F1AC6113B6FB6100602416 /* smalldot.png */; };
@@ -63,12 +66,12 @@
 		0AB9F36513B6E3B50017DC18 /* PopulationOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopulationOverlay.m; sourceTree = "<group>"; };
 		0AB9F36713B6E6440017DC18 /* PopulationOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopulationOverlayView.h; sourceTree = "<group>"; };
 		0AB9F36813B6E6440017DC18 /* PopulationOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopulationOverlayView.m; sourceTree = "<group>"; };
-		D01D12C813B7238100D83A50 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = Heatsync/en.lproj/PlaceDetailViewController.h; sourceTree = "<group>"; };
-		D01D12CA13B7238100D83A50 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = Heatsync/en.lproj/PlaceDetailViewController.m; sourceTree = "<group>"; };
-		D01D12CC13B7238100D83A50 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Heatsync/en.lproj/PlaceDetailViewController.xib; sourceTree = "<group>"; };
 		D01D12D713B729A200D83A50 /* pdp_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdp_bg.png; sourceTree = "<group>"; };
 		D01D12D813B729A200D83A50 /* people_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = people_icon.png; sourceTree = "<group>"; };
 		D01D12DB13B729BF00D83A50 /* directions_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = directions_bar.png; sourceTree = "<group>"; };
+		D031C47A13C6CBC50017D8A8 /* HSNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSNavigationBar.h; sourceTree = "<group>"; };
+		D031C47B13C6CBC50017D8A8 /* HSNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSNavigationBar.m; sourceTree = "<group>"; };
+		D031C47E13C6CC520017D8A8 /* topbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbar.png; sourceTree = "<group>"; };
 		D037760B13B6A7D100804B3F /* Heatsync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heatsync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D037760F13B6A7D100804B3F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D037761113B6A7D100804B3F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,8 +83,6 @@
 		D037761E13B6A7D100804B3F /* HeatsyncAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeatsyncAppDelegate.h; sourceTree = "<group>"; };
 		D037761F13B6A7D100804B3F /* HeatsyncAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeatsyncAppDelegate.m; sourceTree = "<group>"; };
 		D037762213B6A7D200804B3F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		D037762413B6A7D200804B3F /* HeatsyncViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeatsyncViewController.h; sourceTree = "<group>"; };
-		D037762513B6A7D200804B3F /* HeatsyncViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeatsyncViewController.m; sourceTree = "<group>"; };
 		D037762813B6A7D200804B3F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HeatsyncViewController.xib; sourceTree = "<group>"; };
 		D037764813B6AD0800804B3F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D037765213B6ADA500804B3F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -138,6 +139,11 @@
 		D037769E13B6B61400804B3F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		D0486B7A13B6FDC7005DF573 /* buffercircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buffercircle.png; sourceTree = "<group>"; };
 		D0486B8D13B71481005DF573 /* popup_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popup_bg.png; sourceTree = "<group>"; };
+		D057D79413C2860000AD5711 /* HeatsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeatsyncViewController.h; sourceTree = "<group>"; };
+		D057D79513C2860000AD5711 /* HeatsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeatsyncViewController.m; sourceTree = "<group>"; };
+		D057D79613C2860000AD5711 /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
+		D057D79713C2860000AD5711 /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
+		D057D79813C2860000AD5711 /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailViewController.xib; sourceTree = "<group>"; };
 		D0C3A59A13B6E71E009DFEDA /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		D0C3A59B13B6E71E009DFEDA /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		D0F1AC5A13B6F9F700602416 /* HSAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSAnnotationView.h; sourceTree = "<group>"; };
@@ -216,6 +222,11 @@
 		D037761513B6A7D100804B3F /* Heatsync */ = {
 			isa = PBXGroup;
 			children = (
+				D057D79413C2860000AD5711 /* HeatsyncViewController.h */,
+				D057D79513C2860000AD5711 /* HeatsyncViewController.m */,
+				D057D79613C2860000AD5711 /* PlaceDetailViewController.h */,
+				D057D79713C2860000AD5711 /* PlaceDetailViewController.m */,
+				D057D79813C2860000AD5711 /* PlaceDetailViewController.xib */,
 				D0F1AC5A13B6F9F700602416 /* HSAnnotationView.h */,
 				D0F1AC5B13B6F9F700602416 /* HSAnnotationView.m */,
 				0AB9F36313B6E38C0017DC18 /* Overlay */,
@@ -224,13 +235,10 @@
 				D037761E13B6A7D100804B3F /* HeatsyncAppDelegate.h */,
 				D037761F13B6A7D100804B3F /* HeatsyncAppDelegate.m */,
 				D037762113B6A7D200804B3F /* MainWindow.xib */,
-				D01D12C713B7238100D83A50 /* PlaceDetailViewController.h */,
-				D01D12C913B7238100D83A50 /* PlaceDetailViewController.m */,
-				D01D12CB13B7238100D83A50 /* PlaceDetailViewController.xib */,
-				D037762413B6A7D200804B3F /* HeatsyncViewController.h */,
-				D037762513B6A7D200804B3F /* HeatsyncViewController.m */,
 				D037762713B6A7D200804B3F /* HeatsyncViewController.xib */,
 				D037761613B6A7D100804B3F /* Supporting Files */,
+				D031C47A13C6CBC50017D8A8 /* HSNavigationBar.h */,
+				D031C47B13C6CBC50017D8A8 /* HSNavigationBar.m */,
 			);
 			path = Heatsync;
 			sourceTree = "<group>";
@@ -310,6 +318,7 @@
 		D0F1AC6013B6FB6100602416 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D031C47E13C6CC520017D8A8 /* topbar.png */,
 				D01D12D813B729A200D83A50 /* people_icon.png */,
 				D01D12D713B729A200D83A50 /* pdp_bg.png */,
 				D0486B7A13B6FDC7005DF573 /* buffercircle.png */,
@@ -376,11 +385,12 @@
 				D0F1AC6213B6FB6100602416 /* smalldot.png in Resources */,
 				D0486B7B13B6FDC7005DF573 /* buffercircle.png in Resources */,
 				D0486B8E13B71481005DF573 /* popup_bg.png in Resources */,
-				D01D12CD13B7238100D83A50 /* PlaceDetailViewController.xib in Resources */,
 				D01D12D913B729A200D83A50 /* pdp_bg.png in Resources */,
 				D01D12DA13B729A200D83A50 /* people_icon.png in Resources */,
 				D01D12DC13B729BF00D83A50 /* directions_bar.png in Resources */,
 				0A1D189813B755BA00B0CFAD /* Icon.png in Resources */,
+				D057D79B13C2860000AD5711 /* PlaceDetailViewController.xib in Resources */,
+				D031C47F13C6CC520017D8A8 /* topbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +403,6 @@
 			files = (
 				D037761D13B6A7D100804B3F /* main.m in Sources */,
 				D037762013B6A7D100804B3F /* HeatsyncAppDelegate.m in Sources */,
-				D037762613B6A7D200804B3F /* HeatsyncViewController.m in Sources */,
 				D037767213B6B4E200804B3F /* ASIAuthenticationDialog.m in Sources */,
 				D037767313B6B4E200804B3F /* ASIDataCompressor.m in Sources */,
 				D037767413B6B4E200804B3F /* ASIDataDecompressor.m in Sources */,
@@ -419,39 +428,15 @@
 				0AB9F36913B6E6440017DC18 /* PopulationOverlayView.m in Sources */,
 				D0C3A59C13B6E71E009DFEDA /* Annotation.m in Sources */,
 				D0F1AC5C13B6F9F700602416 /* HSAnnotationView.m in Sources */,
+				D057D79913C2860000AD5711 /* HeatsyncViewController.m in Sources */,
+				D057D79A13C2860000AD5711 /* PlaceDetailViewController.m in Sources */,
+				D031C47C13C6CBC50017D8A8 /* HSNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D01D12C713B7238100D83A50 /* PlaceDetailViewController.h */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D01D12C813B7238100D83A50 /* en */,
-			);
-			name = PlaceDetailViewController.h;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		D01D12C913B7238100D83A50 /* PlaceDetailViewController.m */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D01D12CA13B7238100D83A50 /* en */,
-			);
-			name = PlaceDetailViewController.m;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		D01D12CB13B7238100D83A50 /* PlaceDetailViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D01D12CC13B7238100D83A50 /* en */,
-			);
-			name = PlaceDetailViewController.xib;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		D037761813B6A7D100804B3F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -15,6 +15,8 @@
 #import "PopulationOverlay.h"
 #import "PopulationOverlayView.h"
 
+#import "PlaceDetailViewController.h"
+
 #define kSpanLatDeltaMax            2
 
 @implementation HeatsyncViewController
@@ -27,6 +29,7 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     NSLog(@"change");
+    int i = 0;
     if (map.region.span.latitudeDelta > kSpanLatDeltaMax) {
         [map setRegion:globalRegion animated:YES];
     }
@@ -36,6 +39,7 @@
     else {
         [self downloadTrendingData];
     }
+    
 }
 
 //- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
@@ -69,6 +73,11 @@
 	[manager stopUpdatingLocation];
     updating = NO;
     
+    MKCoordinateRegion hardcodedRegion;
+    hardcodedRegion.center = CLLocationCoordinate2DMake(37.76, -122.4);
+    hardcodedRegion.span = MKCoordinateSpanMake( 0.009189, 0.008086);
+    [map setRegion:hardcodedRegion animated:NO];
+    [self mapView:map regionDidChangeAnimated:NO];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -94,7 +103,7 @@
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:requestURL];
     [request setDelegate:self];
     [request setDidFinishSelector:@selector(downloadTrendingDataFinished:)];
-    
+    [request setDidFailSelector:@selector(downloadTrendingDataFailed:)];
     [request startAsynchronous];
 }
 
@@ -167,8 +176,11 @@
     
     // Let the map view own the hazards model object now
     [populationOverlay release];
+}
 
-    
+- (void)downloadTrendingDataFailed:(ASIHTTPRequest *)request {
+    NSLog(@"Downloading Trending Data Failed");
+    NSLog(@"%@",[request error]);
 }
 
 - (void)downloadPlacesData {
@@ -213,7 +225,7 @@
     }
 }
 
-- (void)addPinAtCoord:(CLLocationCoordinate2D)coord title:(NSString *)title subtitle:(NSString *)subtitle{
+- (void)addPinAtCoord:(CLLocationCoordinate2D)coord title:(NSString *)title subtitle:(NSString *)subtitle {
 	Annotation *defaultAnnotation = [[Annotation alloc] initWithCoordinate:coord new:YES];
 	defaultAnnotation.title = title;
     defaultAnnotation.subTitle = subtitle;
@@ -225,7 +237,16 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(Annotation *)annotation{
     static int i = 0;
     i++;
-	return [[HSAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:[NSString stringWithFormat:@"Hello%d",i]];
+    
+    HSAnnotationView *view = [[HSAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:[NSString stringWithFormat:@"Hello%d",i]];
+    
+    [((UIButton *) view.rightCalloutAccessoryView) addTarget:self action:@selector(showPlaceDetail) forControlEvents:UIControlEventTouchUpInside];
+	return view;
+}
+
+- (void)showPlaceDetail {
+    PlaceDetailViewController *detailViewController = [[PlaceDetailViewController alloc] initWithNibName:@"PlaceDetailViewController" bundle:nil];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 - (void)dealloc
