@@ -6,4 +6,8 @@
 //  Copyright 2011 Apple. All rights reserved.
 //
 
-#include "ConstantsAndMacros.h"
+#import "ConstantsAndMacros.h"
+
+CGRect frameAnchoredAtZero(CGSize size) {
+    return CGRectMake(0,0,size.width,size.height);
+}
