@@ -1,5 +1,5 @@
 //
-//  NSBarButtonItem.h
+//  HSBarButtonItem.h
 //  Heatsync
 //
 //  Created by Justin Uang on 7/7/11.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSBarButtonItem : UIBarButtonItem {
+@interface HSBarButtonItem : UIBarButtonItem {
     
 }
 

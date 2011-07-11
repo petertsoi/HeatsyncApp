@@ -24,6 +24,15 @@
 @synthesize locMan;
 @synthesize regionBeforeZoom;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+    }
+    return self;
+}
+
+
 #pragma mark -
 #pragma mark MKMapViewDelegate
 
@@ -97,7 +106,7 @@
     double tr_x = map.region.center.longitude + map.region.span.longitudeDelta/2;
     
     double tr_y = map.region.center.latitude + map.region.span.latitudeDelta/2;
-    NSString *urlString = [[NSString stringWithFormat:@"http://ec2-50-19-194-124.compute-1.amazonaws.com/trending_data?bl=%f,%f&tr=%f,%f&divx=%d&divy=%d", bl_y, bl_x, tr_y, tr_x, 16, 16] stringByAddingPercentEscapesUsingEncoding:
+    NSString *urlString = [[NSString stringWithFormat:@"http://kokodex.com/trending_data?bl=%f,%f&tr=%f,%f&divx=%d&divy=%d", bl_y, bl_x, tr_y, tr_x, 16, 16] stringByAddingPercentEscapesUsingEncoding:
                            NSASCIIStringEncoding];
     NSURL *requestURL = [NSURL URLWithString:urlString];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:requestURL];
@@ -191,13 +200,13 @@
     double tr_x = map.region.center.longitude + map.region.span.longitudeDelta/2;
     
     double tr_y = map.region.center.latitude + map.region.span.latitudeDelta/2;
-    NSString *urlString = [[NSString stringWithFormat:@"http://ec2-50-19-194-124.compute-1.amazonaws.com/trending_places?bl=%f,%f&tr=%f,%f", bl_y, bl_x, tr_y, tr_x, 16, 16] stringByAddingPercentEscapesUsingEncoding:
+    NSString *urlString = [[NSString stringWithFormat:@"http://kokodex.com/trending_places?bl=%f,%f&tr=%f,%f", bl_y, bl_x, tr_y, tr_x, 16, 16] stringByAddingPercentEscapesUsingEncoding:
                            NSASCIIStringEncoding];
     NSURL *requestURL = [NSURL URLWithString:urlString];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:requestURL];
     [request setDelegate:self];
     [request setDidFinishSelector:@selector(downloadPlacesDataFinished:)];
-    
+    [request setDidFailSelector:@selector(downloadPlacesDataFailed:)];
     [request startAsynchronous];
 }
 
@@ -223,6 +232,10 @@
         
         [self addPinAtCoord:coord title:[NSString stringWithFormat:@"%@ (%@)", name, count] subtitle:[count stringValue]];
     }
+}
+
+- (void)downloadPlacesDataFailed:(ASIHTTPRequest *)request {
+    NSLog(@"Failed");
 }
 
 - (void)addPinAtCoord:(CLLocationCoordinate2D)coord title:(NSString *)title subtitle:(NSString *)subtitle {
@@ -278,6 +291,9 @@
     [locMan startUpdatingLocation];
     
     map.showsUserLocation = YES;
+    
+    // Custom initialization
+    self.title = @"Heat Map";
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay

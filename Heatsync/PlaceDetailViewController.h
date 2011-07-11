@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PlaceDetailViewController : UIViewController {
-    
+@interface PlaceDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+    IBOutlet UITableView *tableView;
 }
 
 @end

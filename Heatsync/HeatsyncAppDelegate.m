@@ -7,21 +7,21 @@
 //
 
 #import "HeatsyncAppDelegate.h"
-
 #import "HeatsyncViewController.h"
+#import "PlaceDetailViewController.h"
 
 @implementation HeatsyncAppDelegate
 
 
 @synthesize window=_window;
 
-@synthesize viewController=_viewController;
+@synthesize navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-     
-    [self.window addSubview:self.viewController.view];
+    PlaceDetailViewController *detail = [[PlaceDetailViewController alloc] initWithNibName:@"PlaceDetailViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:detail animated:NO];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -69,7 +69,7 @@
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
+    [navigationController release];
     [super dealloc];
 }
 
