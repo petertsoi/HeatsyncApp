@@ -14,7 +14,7 @@
 	int locationID;
 }
 
-@property  CLLocationCoordinate2D coordinate;
+@property CLLocationCoordinate2D coordinate;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *subTitle;
 @property BOOL isNew;

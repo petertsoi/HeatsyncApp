@@ -7,19 +7,17 @@
 //
 
 #import "PlaceDetailViewController.h"
-
+#import "ViewFactory.h"
+#import "HSTableViewCell.h"
 
 @implementation PlaceDetailViewController
+
+@synthesize factory;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        tableView.rowHeight = [UIImage imageNamed:@"listitem_bg.png"].size.height;
-        
-        self.title = @"Info";
-        
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [backButton setBackgroundImage:[UIImage imageNamed:@"backbutton_up.png"] forState:UIControlStateNormal];
         [backButton setBackgroundImage:[UIImage imageNamed:@"backbutton_down.png"] forState:UIControlStateSelected];
@@ -31,6 +29,8 @@
         [backButtonItem setTarget:self];
         [backButtonItem setAction:@selector(backButtonPressed:)];
         [[self navigationItem] setLeftBarButtonItem:backButtonItem];
+        
+        self.factory = [[[ViewFactory alloc] initWithNib:@"TableViewCells"] autorelease];
     }
     return self;
 }
@@ -40,31 +40,35 @@
 }
 
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 10;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIImageView *headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"listbar.png"]];
     
-    return headerView;
+    UIImageView *headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"listbar.png"]];
+    UIView *headerViewWrapper = [[UIView alloc] initWithFrame:headerView.frame];
+    [headerViewWrapper addSubview:headerView];
+    
+    return headerViewWrapper;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    HSTableViewCell *cell = (HSTableViewCell *) [self.factory cellOfKind:@"cell" forTable:aTableView];
+    UILabel *nameLabel = (UILabel *) [cell viewWithTag:kTableCellName];
+    UILabel *locationLabel = (UILabel *) [cell viewWithTag:kTableCellLocation];
+    UILabel *numberLabel = (UILabel *) [cell viewWithTag:kTableCellNumber];
+    nameLabel.text = @"Name";
+    locationLabel.text = @"Location";
+    numberLabel.text = @"22";
     
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        /* Create new cell */
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"listitem_bg.png"] highlightedImage:[UIImage imageNamed:@"listitem_bg_down.png"]];
     
     return cell;
 }
 
 - (void)dealloc
 {
+    self.factory = nil;
+    
     [super dealloc];
 }
 
@@ -81,6 +85,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    tableView.rowHeight = [UIImage imageNamed:@"listitem_bg.png"].size.height;
+    tableView.sectionHeaderHeight = [UIImage imageNamed:@"listbar.png"].size.height - 1;
+    
+    self.title = @"Info";
     // Do any additional setup after loading the view from its nib.
 }
 

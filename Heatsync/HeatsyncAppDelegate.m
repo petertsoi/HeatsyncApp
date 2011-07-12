@@ -20,8 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    PlaceDetailViewController *detail = [[PlaceDetailViewController alloc] initWithNibName:@"PlaceDetailViewController" bundle:[NSBundle mainBundle]];
-    [self.navigationController pushViewController:detail animated:NO];
+    //PlaceDetailViewController *detail = [[PlaceDetailViewController alloc] initWithNibName:@"PlaceDetailViewController" bundle:[NSBundle mainBundle]];
+    //[self.navigationController pushViewController:detail animated:NO];
     [self.window makeKeyAndVisible];
     
     return YES;

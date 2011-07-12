@@ -38,7 +38,6 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
     NSLog(@"change");
-    int i = 0;
     if (map.region.span.latitudeDelta > kSpanLatDeltaMax) {
         [map setRegion:globalRegion animated:YES];
     }
@@ -96,9 +95,6 @@
 #pragma mark Get Network Data
 
 - (void)downloadTrendingData {
-    MKCoordinateRegion center = map.region;
-    MKCoordinateRegion span = map.region;
-    
     double bl_x = map.region.center.longitude - map.region.span.longitudeDelta/2;
     
     double bl_y = map.region.center.latitude - map.region.span.latitudeDelta/2;
@@ -152,7 +148,7 @@
         maxSoFar = MAX(grid[i], maxSoFar);
     }
     
-    double maxRatio = (double)maxSoFar / regionSquareSize;
+    //double maxRatio = (double)maxSoFar / regionSquareSize;
     
     double normalized[[trendingAreaPopulations count]];
     
@@ -290,7 +286,7 @@
     
     [locMan startUpdatingLocation];
     
-    map.showsUserLocation = YES;
+    //map.showsUserLocation = YES;
     
     // Custom initialization
     self.title = @"Heat Map";

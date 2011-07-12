@@ -34,9 +34,8 @@
         
         [self addSubview:cloud];
         [self sendSubviewToBack:cloud];
-        [self expandCloud];
-
-        self.canShowCallout = YES;
+        cloud.transform = CGAffineTransformMakeScale(0.3, 0.3);
+        [self shrinkCloud];
     }
     
     return self;

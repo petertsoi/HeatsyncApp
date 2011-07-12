@@ -62,6 +62,11 @@
 		D078863313CA83270044BB96 /* listitem_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D078862E13CA83270044BB96 /* listitem_arrow.png */; };
 		D078863413CA83270044BB96 /* listitem_bg_down.png in Resources */ = {isa = PBXBuildFile; fileRef = D078862F13CA83270044BB96 /* listitem_bg_down.png */; };
 		D078863513CA83270044BB96 /* listitem_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D078863013CA83270044BB96 /* listitem_bg.png */; };
+		D078863713CAA0190044BB96 /* icon_people_smaller.png in Resources */ = {isa = PBXBuildFile; fileRef = D078863613CAA0190044BB96 /* icon_people_smaller.png */; };
+		D078863A13CAA08F0044BB96 /* ViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D078863913CAA08F0044BB96 /* ViewFactory.m */; };
+		D078863C13CAA2A20044BB96 /* TableViewCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D078863B13CAA2A10044BB96 /* TableViewCells.xib */; };
+		D078863F13CAA35D0044BB96 /* UIImage+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D078863E13CAA35D0044BB96 /* UIImage+NSCoding.m */; };
+		D078864213CAA4080044BB96 /* HSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D078864113CAA4070044BB96 /* HSTableViewCell.m */; };
 		D07E474B13C6CF5B0064D922 /* backbutton_down.png in Resources */ = {isa = PBXBuildFile; fileRef = D07E474913C6CF5B0064D922 /* backbutton_down.png */; };
 		D07E474C13C6CF5B0064D922 /* backbutton_up.png in Resources */ = {isa = PBXBuildFile; fileRef = D07E474A13C6CF5B0064D922 /* backbutton_up.png */; };
 		D07E475013C6D1F70064D922 /* HSBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E474F13C6D1F70064D922 /* HSBarButtonItem.m */; };
@@ -161,6 +166,14 @@
 		D078862E13CA83270044BB96 /* listitem_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listitem_arrow.png; sourceTree = "<group>"; };
 		D078862F13CA83270044BB96 /* listitem_bg_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listitem_bg_down.png; sourceTree = "<group>"; };
 		D078863013CA83270044BB96 /* listitem_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listitem_bg.png; sourceTree = "<group>"; };
+		D078863613CAA0190044BB96 /* icon_people_smaller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_people_smaller.png; path = ../../PDP_lo_r3/icon_people_smaller.png; sourceTree = "<group>"; };
+		D078863813CAA08F0044BB96 /* ViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFactory.h; sourceTree = "<group>"; };
+		D078863913CAA08F0044BB96 /* ViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFactory.m; sourceTree = "<group>"; };
+		D078863B13CAA2A10044BB96 /* TableViewCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCells.xib; sourceTree = "<group>"; };
+		D078863D13CAA35C0044BB96 /* UIImage+NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+NSCoding.h"; sourceTree = "<group>"; };
+		D078863E13CAA35D0044BB96 /* UIImage+NSCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NSCoding.m"; sourceTree = "<group>"; };
+		D078864013CAA4070044BB96 /* HSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSTableViewCell.h; sourceTree = "<group>"; };
+		D078864113CAA4070044BB96 /* HSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSTableViewCell.m; sourceTree = "<group>"; };
 		D07E474913C6CF5B0064D922 /* backbutton_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton_down.png; sourceTree = "<group>"; };
 		D07E474A13C6CF5B0064D922 /* backbutton_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton_up.png; sourceTree = "<group>"; };
 		D07E474E13C6D1F70064D922 /* HSBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSBarButtonItem.h; sourceTree = "<group>"; };
@@ -249,6 +262,9 @@
 				D057D79613C2860000AD5711 /* PlaceDetailViewController.h */,
 				D057D79713C2860000AD5711 /* PlaceDetailViewController.m */,
 				D057D79813C2860000AD5711 /* PlaceDetailViewController.xib */,
+				D078863B13CAA2A10044BB96 /* TableViewCells.xib */,
+				D078864013CAA4070044BB96 /* HSTableViewCell.h */,
+				D078864113CAA4070044BB96 /* HSTableViewCell.m */,
 				D0F1AC5A13B6F9F700602416 /* HSAnnotationView.h */,
 				D0F1AC5B13B6F9F700602416 /* HSAnnotationView.m */,
 				0AB9F36313B6E38C0017DC18 /* Overlay */,
@@ -265,6 +281,10 @@
 				D031C47B13C6CBC50017D8A8 /* HSNavigationBar.m */,
 				D07E474E13C6D1F70064D922 /* HSBarButtonItem.h */,
 				D07E474F13C6D1F70064D922 /* HSBarButtonItem.m */,
+				D078863813CAA08F0044BB96 /* ViewFactory.h */,
+				D078863913CAA08F0044BB96 /* ViewFactory.m */,
+				D078863D13CAA35C0044BB96 /* UIImage+NSCoding.h */,
+				D078863E13CAA35D0044BB96 /* UIImage+NSCoding.m */,
 			);
 			path = Heatsync;
 			sourceTree = "<group>";
@@ -359,6 +379,7 @@
 				D0486B7A13B6FDC7005DF573 /* buffercircle.png */,
 				D0F1AC6113B6FB6100602416 /* smalldot.png */,
 				D0486B8D13B71481005DF573 /* popup_bg.png */,
+				D078863613CAA0190044BB96 /* icon_people_smaller.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -433,6 +454,8 @@
 				D078863313CA83270044BB96 /* listitem_arrow.png in Resources */,
 				D078863413CA83270044BB96 /* listitem_bg_down.png in Resources */,
 				D078863513CA83270044BB96 /* listitem_bg.png in Resources */,
+				D078863713CAA0190044BB96 /* icon_people_smaller.png in Resources */,
+				D078863C13CAA2A20044BB96 /* TableViewCells.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +498,9 @@
 				D031C47C13C6CBC50017D8A8 /* HSNavigationBar.m in Sources */,
 				D07E475013C6D1F70064D922 /* HSBarButtonItem.m in Sources */,
 				D04E70ED13CA4FB00022B83B /* ConstantsAndMacros.m in Sources */,
+				D078863A13CAA08F0044BB96 /* ViewFactory.m in Sources */,
+				D078863F13CAA35D0044BB96 /* UIImage+NSCoding.m in Sources */,
+				D078864213CAA4080044BB96 /* HSTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
